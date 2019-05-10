@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission to Mars</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1> Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape"> Scrape Mars</a>
+            </p>
+        </div>
+        <div class="row"> id="mars-news">
+            <div class="col-md-12">
+                <h2>Latest Mars News</h2>
+                <h4>{{mars.news_title}}</h4>
+                <p>{{mars.news_paragraph}}</p>
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="col-md-8">
+                <h2>Featured Mars Images</h2>
+                <h4>{{mars.news_title}}</h4>
+                <img src="{{mars.featured_image}}"/>
+            </div>
+            <div class="col-md-4">
+                <h4>Current Martian Weather</h4>
+                <p>{{mars.weather}}</p>            
+            </div>
+        </div>
+        <div class="row"> 
+            <h2>Mars Hemispheres</h2>
+        </div>
+        {% for hemisphere in mars.hemispheres %}
+            <div class="col-md-6">
+                <div class="Thumbnails">
+                    <img src="{{hemisphere.img_url}}"/>
+                    <div class="caption"></div>
+                        <h3>{{hemisphere.title}}</h3>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>
